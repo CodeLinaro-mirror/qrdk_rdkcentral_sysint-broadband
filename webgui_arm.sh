@@ -172,6 +172,7 @@ restartEventsForRfCp()
     echo "WEBGUI : restart norf cp events restart"
     sysevent set norf_webgui 1
     sysevent set firewall-restart
+    echo "ZEBRA_RESTART_TRACE component=sysint-broadband pid=$$ ppid=$PPID site=$0:restartEventsForRfCp reason=RF_captive_portal_service_refresh" >&2
     sysevent set zebra-restart
     sysevent set dhcp_server-stop
     # Let's make sure dhcp server restarts properly
